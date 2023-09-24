@@ -1,0 +1,104 @@
+<form (ngSubmit)="save()">
+  <div class="flex items-center" mat-dialog-title>
+    <div class="title">
+      <h2 *ngIf="mode==='update'" class="headline m-0 flex-auto" translate>Sửa thông tin  sản phẩm</h2>
+      <h2 *ngIf="mode!=='update'" class="headline m-0 flex-auto" translate>Thêm mới sản phẩm</h2>
+    </div>
+    <div class="close">
+      <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-divider class="-mx-6 text-border"></mat-divider>
+<div class="div1">
+  <mat-dialog-content class="flex flex-col">
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field  class="example-full-width">
+        <mat-label>Tên sản phẩm</mat-label>
+        <input (blur)="trimData('name', $any($event.target).value)" name="name" value="{{defaults.name}}" matInput required
+               type="text">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-content class="flex flex-col">
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field  class="example-full-width">
+        <mat-label>giảm giá</mat-label>
+        <input (blur)="trimData('discount', $any($event.target).value)" value="{{defaults.discount}}" name="discount"  matInput required
+               type="text">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+</div>
+<div class="div1">
+  <mat-dialog-content class="flex flex-col">
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field  class="example-full-width">
+        <mat-label>Ảnh 1 sản phẩm</mat-label>
+        <input (blur)="trimData('image', $any($event.target).value)" value="{{defaults.image}}" formControlName="image" name="image"  matInput required
+               type="text">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-content class="flex flex-col">
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field  class="example-full-width">
+        <mat-label>Ảnh 2 sản phẩm</mat-label>
+        <input (blur)="trimData('image2', $any($event.target).value)" value="{{defaults.image3}}" name="image2"  matInput required
+               type="text">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+</div>
+  <div class="div1">
+    <mat-dialog-content class="flex flex-col">
+      <div class="flex flex-col sm:flex-row">
+        <mat-form-field  class="example-full-width">
+          <mat-label>Ảnh 3 sản phẩm</mat-label>
+          <input (blur)="trimData('image3', $any($event.target).value)" value="{{defaults.image3}}" name="image3"  matInput required
+                 type="text">
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-content class="flex flex-col">
+      <div class="flex flex-col sm:flex-row">
+        <mat-form-field  class="example-full-width">
+          <mat-label>giá sản phẩm</mat-label>
+          <input (blur)="trimData('price', $any($event.target).value)" value="{{defaults.price}}" matInput required
+                 type="text">
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+  </div>
+  <div class="div1">
+    <mat-dialog-content class="flex flex-col">
+      <div class="flex flex-col sm:flex-row">
+        <mat-form-field  class="example-full-width">
+          <mat-label>Loại sản phẩm</mat-label>
+          <mat-select required>
+            <mat-option *ngFor="let category of listCategorys" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-content class="flex flex-col">
+      <div class="flex flex-col sm:flex-row">
+        <mat-form-field  class="example-full-width">
+          <mat-label>Mô tả sản phẩm</mat-label>
+          <input (blur)="trimData('description', $any($event.target).value)" value="{{defaults.description}}" matInput required
+                 type="text">
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button" style="text-align: center">Hủy</button>
+    <button *ngIf="isCreateProduct()" style="background-color: #44dc8c" mat-flat-button type="submit">Thêm loại sản phẩm</button>
+    <button *ngIf= "isUpdateProduct()" style="background-color: #44dc8c" color="accent" mat-flat-button type="submit">Lưu</button>
+  </mat-dialog-actions>
+</form>
+

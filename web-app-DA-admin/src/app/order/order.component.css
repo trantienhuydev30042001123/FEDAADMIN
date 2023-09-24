@@ -1,0 +1,70 @@
+
+.card-title {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.header-row {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.header-row th {
+  width: 100px;
+}
+
+.card-table {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.card-table::-webkit-scrollbar {
+  width: 12px;
+}
+
+.card-table::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.card-table::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.card-table::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.table-container {
+  overflow-x: scroll; /* Sử dụng 'scroll' thay vì 'auto' */
+}
+
+.table-cart td {
+  white-space: pre-wrap;
+}
+
+.nameP{
+  width:20%;
+  text-align: left;
+}
+.imageP{
+  width: 18%;
+}
+
+.table-cart {
+  /* Loại bỏ max-width và max-height ở đây */
+  overflow: hidden;
+}
+.btn{
+  font-size: 10px ;
+  margin-bottom:10px;
+  width: 50px;
+  border-radius: 3px ;
+}
+
+.update{
+  border-color: #29CC79;
+  background-color: #29CC79;
+}
+

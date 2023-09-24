@@ -1,0 +1,30 @@
+<div class="container1">
+  <div class="row row-login">
+    <div class="col-12" >
+      <mat-card class="form-login1">
+        <form class="form-login" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate><br>
+          <h1 class="login-text">Đăng nhập</h1>
+          <!--USERNAME-->
+          <mat-form-field class="input1" style="width: 350px" appearance="outline">
+            <mat-label>UserName</mat-label>
+            <input class="input"  name="username"[(ngModel)]="form.username" matInput #username="ngModel" minlength="3" maxlength="50" required>
+            <mat-icon disabled matSuffix>person</mat-icon>
+            <mat-error *ngIf="username.hasError('required')">the name is required</mat-error>
+            <mat-error *ngIf="username.hasError('minlength')">the name must more than 3</mat-error>
+          </mat-form-field><br>
+          <!-- PASSWORD-->
+          <mat-form-field class="input2" style="width: 350px" appearance="outline">
+            <mat-label>password</mat-label>
+            <input class="input"  name="password" [(ngModel)]="form.password"  matInput [type]="hide ? 'password' : 'text'" #password="ngModel" required minlength="6" maxlength="100">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon disabled>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.hasError('required')">the password is required</mat-error>
+            <mat-error *ngIf="password.hasError('minlength')">the password must more than 6</mat-error>
+          </mat-form-field><br>
+          <button mat-raised-button color="primary" style="margin-bottom: 20px">Đăng Nhập</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="title">
+    <h2>Quản lý sản phẩm</h2>
+    <div class="create">
+      <button (click)="createProduct()"
+        mat-mini-fab
+              type="submit"
+              style="background-color: #44dc8c">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-divider class="mb-5"></mat-divider>
+  <div class="container" style="background-color: #f7f7f7">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="product">
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+          <td *matCellDef="let row" class=" text-secondary button-action " mat-cell>
+            <button (click)="updateProduct(row)"
+              mat-mini-fab class="mt-2 mb-2"
+                    type="submit"
+                    style="
+                        background-color: #44dc8c;">
+              <mat-icon class="icon-button">edit</mat-icon>
+            </button>
+            <button (click)="deleteProduct(row)"
+              mat-mini-fab class="mb-2"
+                    type="submit"
+                    style="
+                        background-color: #f36b7f;">
+              <mat-icon class="icon-button">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="discount">
+          <th mat-header-cell *matHeaderCellDef> Discount </th>
+          <td mat-cell *matCellDef="let element"> {{element.discount}}% </td>
+        </ng-container>
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef> Image </th>
+          <td mat-cell *matCellDef="let element"> <img class="image"  src="{{element.image}}"> </td>
+        </ng-container>
+        <ng-container matColumnDef="image2">
+          <th mat-header-cell *matHeaderCellDef> Image2 </th>
+          <td mat-cell *matCellDef="let element"><img class="image"  src="{{element.image2}}"> </td>
+        </ng-container>
+        <ng-container matColumnDef="image3">
+          <th mat-header-cell *matHeaderCellDef> Image3 </th>
+          <td mat-cell *matCellDef="let element"><img class="image"  src="{{element.image3}}"> </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}}đ </td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

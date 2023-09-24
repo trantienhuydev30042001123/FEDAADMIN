@@ -1,0 +1,45 @@
+.container1{
+background-image: url("src/assets/img/background.jpg");
+  height: 100%;
+  background-size: cover;
+}
+.row-login{
+  margin: 0!important;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.col-12{
+
+}
+.form-login{
+  text-align: center;
+  background: transparent!important;
+  backdrop-filter: blur(100px);
+}
+.row-login .mat-mdc-card {
+  background-color: transparent;
+
+}
+.login-text{
+  font-size: 40px;
+  font-weight: 500;
+}
+.form-login1{
+  width: 400px;
+  margin: auto;
+  margin-top: 100px;
+}
+.bg-pattern {
+}
+
+.input1{
+  margin-top: 30px;
+}
+.input2{
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.lognup{
+  margin-bottom: 20px;
+}

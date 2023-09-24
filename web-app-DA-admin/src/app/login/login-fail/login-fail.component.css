@@ -1,0 +1,23 @@
+.dialog{
+  text-align: center;
+  padding: 30px 40px 15px 40px;
+}
+
+.submit{
+  background-color: #7e0505;
+  color: lightyellow;
+  border: 2px solid #7e0505;
+  border-radius: 15%;
+  margin-top: 10px;
+}
+
+.material-icons {
+  color: #7e0505;
+
+}
+
+
+
+
+
+

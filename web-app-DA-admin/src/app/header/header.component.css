@@ -1,0 +1,44 @@
+mat-toolbar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #f7f7f7;
+  height: 60px;
+}
+li{
+  list-style: none;
+}
+button{
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.user{
+  font-size: 14px;
+
+}
+.user-image{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.user-image-icon{
+  height: 18px;
+  font-size: 16px;
+}
+mat-menu-content{
+  width: 160px;
+}
+
+.logout{
+  justify-content: right!important;
+  align-items: center;
+
+}
+.logout div ul li button{
+  padding: 22px;
+  border: 1px solid #ccc;
+}
+.logout  div {
+
+}

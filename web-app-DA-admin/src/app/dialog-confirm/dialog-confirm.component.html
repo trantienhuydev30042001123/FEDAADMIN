@@ -1,0 +1,14 @@
+<div mat-dialog-title fxLayout="row" fxLayoutAlign="space-between center" class="box">
+  <span class="text" translate>{{ defaults.title }}</span>
+  <button class="x" type="button" mat-icon-button (click)="close('No answer')" tabindex="-1">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<mat-dialog-content>
+  <p translate style="font-size: 16px">{{ defaults.content }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions style="margin-top: 10px" align="center">
+  <button mat-raised-button (click)="close('No')">{{ 'Không'}}</button>
+  <button mat-raised-button color="{{ defaults.colorBtn }}" style="background-color: #29CC79" (click)="close('Yes')">{{ 'Có' }}</button>
+</mat-dialog-actions>

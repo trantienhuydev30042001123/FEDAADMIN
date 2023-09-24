@@ -1,0 +1,12 @@
+.box{
+  position: relative;
+}
+.text {
+  margin-bottom: 50px;
+  height: 0;
+}
+.x{
+  position: absolute;
+  top: 8px;
+  right: 0;
+}

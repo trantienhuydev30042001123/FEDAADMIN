@@ -1,0 +1,54 @@
+<form (ngSubmit)="save()">
+  <div class="flex items-center" mat-dialog-title>
+    <div class="title">
+      <h2 *ngIf="mode==='update'" class="headline m-0 flex-auto" translate>Sửa thông tin người dùng</h2>
+      <h2 *ngIf="mode!=='update'" class="headline m-0 flex-auto" translate>Thêm mới người dùng</h2>
+    </div>
+    <div class="close">
+      <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-divider class="-mx-6 text-border"></mat-divider>
+
+  <mat-dialog-content class="flex flex-col">
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field  class="example-full-width">
+        <mat-label>Tên nguời dùng</mat-label>
+        <input (blur)="trimData('name', $any($event.target).value)" value="{{defaults.name}}" matInput required
+               type="text">
+      </mat-form-field>
+    </div>
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field  class="example-full-width">
+        <mat-label>Tên tài khoản người dùng</mat-label>
+        <input (blur)="trimData('username', $any($event.target).value)" value="{{defaults.username}}" matInput required
+               type="text">
+      </mat-form-field>
+    </div>
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field  class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input (blur)="trimData('email', $any($event.target).value)" value="{{defaults.email}}" matInput required
+               type="text">
+      </mat-form-field>
+    </div>
+    <div class="flex flex-col sm:flex-row">
+      <mat-form-field class="example-full-width">
+        <mat-label>Vai trò</mat-label>
+        <mat-select name="roles" required multiple>
+          <mat-option *ngFor="let role of listroles" [value]="selectedRoleNames">
+            {{ role.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button" style="text-align: center">Hủy</button>
+    <button *ngIf="isCreateUser()" style="background-color: #44dc8c" mat-flat-button type="submit">Thêm người dùng</button>
+    <button *ngIf= "isUpdateUser()" style="background-color: #44dc8c" color="accent" mat-flat-button type="submit">Lưu</button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,19 @@
+<!--<mat-drawer-container>-->
+<!--  <mat-drawer mode="side" [opened]="sideBarOpen" *ngIf="showNavAndHeader">-->
+<!--    <app-nav></app-nav>-->
+<!--  </mat-drawer>-->
+<!--  <mat-drawer-content>-->
+<!--    <app-header *ngIf="showNavAndHeader"></app-header>-->
+<!--    <router-outlet></router-outlet>-->
+<!--  </mat-drawer-content>-->
+<!--</mat-drawer-container>-->
+
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen" *ngIf="(showNavAndHeader | async)">
+    <app-nav></app-nav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header *ngIf="(showNavAndHeader | async)"></app-header>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

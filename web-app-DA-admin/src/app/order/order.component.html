@@ -1,0 +1,90 @@
+<app-nav-bar></app-nav-bar>
+<ng-container>
+  <div class="container" style="margin-top: 40px; margin-bottom: 40px">
+    <div class="card">
+      <h2 class="card-title"> Đơn hàng</h2>
+      <div class="card-table">
+        <div class="cart-product">
+          <table class="table table-responsive table-cart">
+            <thead>
+            <tr class="header-row">
+              <th>STT</th>
+              <th>Thao tác</th>
+              <th>Tên người đặt</th>
+              <th>Số điện thoại người đặt</th>
+              <th>Địa chỉ người đặt</th>
+              <th>Tên sản phẩm</th>
+              <th>Hình ảnh sản phẩm</th>
+              <th>Size</th>
+              <th>Giá</th>
+              <th>Số lượng</th>
+              <th>Ngày đặt hàng</th>
+              <th>Trạng thái đơn hàng</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let p of order,let i= index ">
+              <td>{{i + 1}}</td>
+              <td>
+                <button class="delete btn btn-danger" (click)="deleteOrder(p.id)" [disabled]="changeStatus(p.status) == 'Hủy'" >
+                  <mat-icon>delete</mat-icon>
+                </button>
+
+                <button class="update btn btn-danger" [matMenuTriggerFor]="statusMenu" [disabled]="changeStatus(p.status) == 'Hủy'">
+                  <mat-icon>brush</mat-icon>
+                </button>
+
+                <mat-menu #statusMenu="matMenu">
+                  <button [disabled]="p.status == 2" mat-menu-item (click)="updateStatus(p.id, 1)">Đã xử lý</button>
+                  <button [disabled]="p.status == 2" mat-menu-item (click)="updateStatus(p.id, 2)">Đã giao</button>
+                </mat-menu>
+              </td>
+
+              <td>{{p.fullname}}</td>
+              <td>{{p.sdt}}</td>
+              <td>{{p.address}}</td>
+              <td class="nameP">
+                <ng-container *ngFor="let productName of p.nameProducts">
+                  <option style="margin-bottom:120px; ">{{ productName }}</option>
+                </ng-container>
+              </td>
+
+              <td class="imageP">
+                <ng-container *ngFor="let image of p.images">
+                  <div style="margin-bottom: 10px">
+                    <img src="{{image}}" style="width: 150px; height: 120px">
+                  </div>
+                </ng-container>
+              </td>
+              <td>
+                <option style="margin-bottom:120px" *ngFor="let size of getSizesToDisplay(p.sizes)">{{ size }}</option>
+              </td>
+
+              <td>
+                <ng-container *ngFor="let price of p.prices">
+                  <option style="margin-bottom: 120px">{{ formatPrice(price) + 'đ' }}</option>
+                </ng-container>
+              </td>
+
+              <td>
+                <ng-container *ngFor="let a of p.quantity">
+                  <option style="margin-bottom: 120px">{{ a }}</option>
+                </ng-container>
+              </td>
+              <td>{{formatDate(p.createdDate)}}</td>
+              <td style="font-weight: bold">
+                {{changeStatus(p.status)}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--        <div class="oder" align="right">-->
+        <!--          <h4>Tổng tiền : {{totalMoney}} VNĐ</h4>-->
+        <!--          <button (click)="buyProduct()" mat-raised-button color="warn">Đặt mua</button>-->
+        <!--        </div>-->
+      </div>
+    </div>
+  </div>
+</ng-container>
+<app-footer></app-footer>

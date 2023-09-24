@@ -1,0 +1,10 @@
+.title{
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  margin-bottom: 10px;
+}
+.create{
+  position: absolute;
+  right:129px;
+}
